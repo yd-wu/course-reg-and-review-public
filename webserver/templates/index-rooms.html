@@ -9,22 +9,21 @@
 
 <body>
   <h1>Course Service</h1>
-  <div>Welcome, {{data}}</div>
   <div class="topnav">
-  <a class="active" href="/">Home</a>
+  <a href="/">Home</a>
   <a href="/courses">Courses</a>
   <a href="/reviews">Reviews</a>
-  <a href="/rooms">Rooms</a>
+  <a class="active" href="/rooms">Rooms</a>
   <a href="/logout">Logout</a>
 </div>
-  <h3>Courses taught by you</h3>
+
+  <h3>All rooms</h3>
   <div>
-    {% for n in courses %}
+    {% for n in data %}
     <div>{{n}}</div>
     {% endfor %}
   </div>
 
 </body>
-
 
 </html>

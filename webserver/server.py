@@ -28,8 +28,8 @@ tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 static_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates/static')
 app = Flask(__name__, template_folder=tmpl_dir, static_folder=static_dir)
 
-DB_USER = ""
-DB_PASSWORD = ""
+DB_USER = "" #omitted
+DB_PASSWORD = "" #omitted
 DB_SERVER = "w4111.cisxo09blonu.us-east-1.rds.amazonaws.com"
 DATABASEURI = "postgresql://"+DB_USER+":"+DB_PASSWORD+"@"+DB_SERVER+"/proj1part2"
 
@@ -205,16 +205,16 @@ def rooms(error=None):
   else:
     user = lambda:None
     user.__dict__ = json.loads(session['user'])
+    rooms = get_all_rooms()
+    context = dict(data = rooms)
     if user.is_admin:
-      rooms = get_all_rooms()
-      context = dict(data = rooms)
       if error is not None:
         context['error'] = error
         return render_template("index-admin-rooms.html", **context)
       else:
         return render_template("index-admin-rooms-no-error.html", **context)
     else:
-      return redirect('/')
+      return render_template("index-rooms.html", **context)
 
 @app.route('/add-room', methods=['POST'])
 def add_room():
