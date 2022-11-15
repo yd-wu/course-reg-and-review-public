@@ -1,0 +1,46 @@
+<html>
+  <style>
+    body{
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+<body>
+  <h1>Course Service</h1>
+  <div class="topnav">
+  <a href="/">Home</a>
+  <a href="/courses">Courses</a>
+  <a class="active" href="/reviews">Reviews</a>
+  <a href="/users">Users</a>
+  <a class="active" href="/rooms">Rooms</a>
+  <a href="/logout">Logout</a>
+  </div>
+
+  <h3>All reviews</h3>
+  <div>
+    {% for n in reviews %}
+    <div>{{n}}</div>
+    {% endfor %}
+  </div>
+
+<h3>Search by course id</h3>
+<form action="/search" method="POST">
+<div class="search-course">
+<input type="number" placeholder="Search by course id" name="course-id">
+    <button>Search</button>
+{% with messages=get_flashed_messages(with_categories=true) %}
+ {% for category, message in messages %}
+  <div class='alert'>
+    {{ message }}
+   </div>
+ {% endfor %}
+{% endwith %}
+</div>
+</form>
+
+
+</body>
+
+<div>{{error}}</div>
+</html>

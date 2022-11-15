@@ -1,0 +1,30 @@
+<html>
+  <style>
+    body{
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+<body>
+  <h1>Course Service</h1>
+  <div class="topnav">
+  <a href="/">Home</a>
+  <a href="/courses">Courses</a>
+  <a class="active" href="/reviews">Reviews</a>
+  <a href="/logout">Logout</a>
+</div>
+
+  <h3>Reviews for course with id {{courseid}}</h3>
+  <div>
+    {% for n in data %}
+    <div>{{n}}</div>
+    {% endfor %}
+  </div>
+
+</body>
+
+<h3> </h3>
+<a href="/reviews">back</a>
+
+</html>

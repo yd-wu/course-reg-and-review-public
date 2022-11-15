@@ -1,1 +1,1 @@
-# course-reg-and-review-public
+# course-reg-and-review
