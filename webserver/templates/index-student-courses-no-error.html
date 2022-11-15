@@ -1,0 +1,58 @@
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+
+<body>
+  <h1>Course Service</h1>
+  <div class="topnav">
+  <a href="/">Home</a>
+  <a class="active" href="/courses">Courses</a>
+  <a href="/reviews">Reviews</a>
+  <a href="/logout">Logout</a>
+</div>
+  <h3>All courses</h3>
+  <div>
+    {% for n in courses %}
+    <div>{{n}}</div>
+    {% endfor %}
+  </div>
+
+  <h3>Courses enrolled</h3>
+  <div>
+    {% for n in enrollment %}
+    <div>{{n}}</div>
+    {% endfor %}
+  </div>
+
+  <h3>Courses waitlisted</h3>
+  <div>
+    {% for n in waitlists %}
+    <div>{{n}}</div>
+    {% endfor %}
+  </div>
+
+</body>
+
+<form method="POST" action="/add-to-waitlist">
+
+  <label for="course_id">Course ID:</label><br>
+  <input type="number" id="course_id" name="course_id"><br>
+
+  <input type="submit" value="Waitlist">
+</form>
+
+<form method="POST" action="/get-off-waitlist">
+
+  <label for="course_id">Course ID:</label><br>
+  <input type="number" id="course_id" name="course_id"><br>
+
+  <input type="submit" value="De-waitlist">
+</form>
+
+
+</html>

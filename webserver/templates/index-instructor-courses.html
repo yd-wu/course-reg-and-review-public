@@ -1,0 +1,48 @@
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+
+<body>
+  <h1>Course Service</h1>
+  <div class="topnav">
+  <a href="/">Home</a>
+  <a class="active" href="/courses">Courses</a>
+  <a href="/reviews">Reviews</a>
+  <a href="/logout">Logout</a>
+</div>
+  <h3>Waitlists for your courses</h3>
+  <div>
+    {% for n in waitlists %}
+    <div>{{n}}</div>
+    {% endfor %}
+  </div>
+
+  <h3>Enrollment for your courses</h3>
+  <div>
+    {% for n in enrollment %}
+    <div>{{n}}</div>
+    {% endfor %}
+  </div>
+
+</body>
+
+<form method="POST" action="/enroll-student-to-class">
+
+  <label for="user_id">Student ID:</label><br>
+  <input type="number" id="user_id" name="user_id"><br>
+
+  <label for="course_id">Course ID:</label><br>
+  <input type="number" id="course_id" name="course_id"><br>
+
+  <input type="submit" value="Enroll Student to Class">
+</form>
+
+<div>{{error}}</div>
+
+
+</html>
